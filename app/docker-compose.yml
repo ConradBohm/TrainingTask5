@@ -5,7 +5,7 @@ services:
         image: nginx
         container_name: app
         volumes:
-            - ./templates:/etc/nginx/templates
+            - ./templates/nginx.conf:/etc/nginx/nginx.conf
             - ./data1:/data1
         ports:
             - 80:80
