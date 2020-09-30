@@ -27,6 +27,7 @@ services:
                 target:
                 read_only: true
 
+                
 networks:
     prom:
         driver: bridge
