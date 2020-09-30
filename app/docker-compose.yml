@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+    app:
+        image: nginx
+        container_name: app
+        volumes:
+        
+        ports:
+            - 80:80
+            - 8080:8080
+        networks:
+            - backend
+
+    app-exporter:
+        image:
+        container_name: app-exporter
+        ports:
+            -
+        networks: 
+            - backend
+        depends_on: 
+            - app
+
+networks: 
+    backend:
+        driver: bridge
