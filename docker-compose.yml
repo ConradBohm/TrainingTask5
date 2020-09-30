@@ -9,8 +9,8 @@ services:
         restart: always
         volumes:
             -   type: bind
-                source:
-                target:
+                source: ./confFiles/prometheus.yml
+                target: /etc/prometheus
                 read_only: true
         networks:
             - prom
@@ -21,13 +21,13 @@ services:
         ports: 
             - "3000:3000"
         restart: always
-        volumes:
-            -   type: bind
-                source:
-                target:
-                read_only: true
+        # volumes:
+        #     -   type: bind
+        #         source:
+        #         target:
+        #         read_only: true
 
-                
+
 networks:
     prom:
         driver: bridge
