@@ -10,7 +10,7 @@ services:
         volumes:
             -   type: bind
                 source: ./confFiles/prometheus.yml
-                target: /etc/prometheus
+                target: /etc/prometheus/prometheus.yml
                 read_only: true
         networks:
             - prom
