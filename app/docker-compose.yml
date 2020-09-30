@@ -5,7 +5,7 @@ services:
         image: nginx
         container_name: app
         volumes:
-        
+            - ./templates:/etc/nginx/templates
         ports:
             - 80:80
             - 8080:8080
@@ -13,10 +13,14 @@ services:
             - backend
 
     app-exporter:
-        image:
+        image: nginx/nginx-prometheus-exporter
         container_name: app-exporter
+        user: root
+        environment: 
+            - SCRAPE_URI=http://app:8080/stub_status
         ports:
-            -
+            - 9113:9113
+        restart: always
         networks: 
             - backend
         depends_on: 
