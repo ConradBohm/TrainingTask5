@@ -11,4 +11,11 @@ scrape_configs:
       static_configs:
         - targets: ['192.168.1.229:9113']
 
+    - job_name: 'node'
+      scheme: https
+      tls_config:
+        - ca_file: node_exporter.crt
+      static_configs:
+        - targets: ['192.168.1.229:9100']
+
   

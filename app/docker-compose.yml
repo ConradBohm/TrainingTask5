@@ -28,6 +28,20 @@ services:
         depends_on: 
             - app
 
+    node-exporter:
+        image: prom/node-exporter
+        container_name: node-exporter
+        user: root
+        volumes:
+            - ./node:/etc/node
+        command:
+            - '--web.config=/etc/node/web.yml'
+        ports:
+            - 9100:9100
+        networks: 
+            - backend
+        depends_on: app
+
 networks: 
     backend:
         driver: bridge
