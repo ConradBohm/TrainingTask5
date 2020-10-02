@@ -9,8 +9,8 @@ services:
         restart: always
         volumes:
             -   type: bind
-                source: ./confFiles/prometheus.yml
-                target: /etc/prometheus/prometheus.yml
+                source: ./confFiles
+                target: /etc/prometheus
                 read_only: true
         networks:
             - prom
